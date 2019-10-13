@@ -1,0 +1,15 @@
+name: ci-pipeline
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 10.x
+      - name: Install dependencies
+        run: npm install
+      - name: ESLint
+        run: npm run lint:es
